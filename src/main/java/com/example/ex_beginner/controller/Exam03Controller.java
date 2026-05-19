@@ -1,4 +1,4 @@
-package com.example.ex_beginner;
+package com.example.ex_beginner.controller;
 
 import jakarta.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
