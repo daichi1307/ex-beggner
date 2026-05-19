@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        
+    </head>
+
+    <body>
+        <form action="finished.html"
+        th:action="@{/exam04/input}" method="post">
+        <h1>ユーザー登録</h1>
+        名前：
+        <input type="text" name="name"><br>
+        年齢：
+        <input type="text" name="age"><br>
+        コメント：<br>
+        <textarea name="comment" rows="4" cols="30"></textarea><br>
+        <button>登録</button>
+    </form>
+    </body>
+</html>
