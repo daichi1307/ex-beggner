@@ -2,27 +2,41 @@ package com.example.ex_beginner.controller;
 
 import com.example.ex_beginner.domai.User;
 import com.example.ex_beginner.form.UserForm;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/exam04")
 public class Exam04Controller {
     @GetMapping("")
-    public String index(UserForm userForm) {
+    public String index(UserForm form) {
         return "exam04";
     }
 
     @PostMapping("/input")
-    public String inpit(UserForm form, Model model) {
+    public String inpit(
+            @Validated UserForm form,
+            BindingResult result,
+            RedirectAttributes redirectAttributes,
+            Model model
+    ) {
+        if (result.hasErrors()) {
+            return index(form);
+        }
         User user = new User();
-        user.setName(form.getName());
-        user.setAge(form.getAge());
-        user.setComment(form.getComment());
-        model.addAttribute(user);
-        return "eam04-result.html";
+//        user.setName(form.getName());
+//        user.setAge(form.getAge());
+//        user.setComment(form.getComment());
+        BeanUtils.copyProperties(form, user);
+        user.setAge(Integer.parseInt(form.getAge()));
+        model.addAttribute("user", user);
+        return "exam04-result.html";
     }
 }

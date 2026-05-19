@@ -9,21 +9,25 @@
 </body>
 </html><!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        
-    </head>
+<head>
 
-    <body>
-        <form action="finished.html"
-        th:action="@{/exam04/input}" method="post">
-        <h1>ユーザー登録</h1>
-        名前：
-        <input type="text" name="name"><br>
-        年齢：
-        <input type="text" name="age"><br>
-        コメント：<br>
-        <textarea name="comment" rows="4" cols="30"></textarea><br>
-        <button>登録</button>
-    </form>
-    </body>
+</head>
+
+<body>
+<form action="finished.html"
+      th:action="@{/exam04/input}"
+      th:object="${userForm}" method="post">
+    <h1>ユーザー登録</h1>
+    <div th:errors="*{name}">dummy</div>
+    名前：
+    <input type="text" name="name"><br>
+    <div th:errors="*{age}">dummy</div>
+    年齢：
+    <input type="text" name="age"><br>
+    <div th:errors="*{comment}">dummy</div>
+    コメント：<br>
+    <textarea name="comment" rows="4" cols="30"></textarea><br>
+    <button>登録</button>
+</form>
+</body>
 </html>
