@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        
+    </head>
+
+    <body>
+        <form action="finished"
+        th:action="@{/exam02/input}" method="post">
+        数字を入れてください。<br>
+        <input type="text" name="num1"> + <input type="text" name="num2"> = <br>
+        <button>足し算をする</button>
+    </form>
+    </body>
+</html>
