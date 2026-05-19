@@ -20,8 +20,9 @@ public class Exam03Controller {
 
     @PostMapping("/input")
     public String input(Integer product1, Integer product2, Integer product3) {
-        application.setAttribute("price", product1 + product2 + product3);
-        application.setAttribute("price2", (product1 + product2 + product3) * 1.1);
+        int result = product1 + product2 + product3;
+        application.setAttribute("total_price", result);
+        application.setAttribute("include_tax_total_price", result * 1.1);
         return "exam03-result";
     }
 }

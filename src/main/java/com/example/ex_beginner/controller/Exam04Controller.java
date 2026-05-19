@@ -10,7 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/exam04")
@@ -24,7 +23,6 @@ public class Exam04Controller {
     public String inpit(
             @Validated UserForm form,
             BindingResult result,
-            RedirectAttributes redirectAttributes,
             Model model
     ) {
         if (result.hasErrors()) {
